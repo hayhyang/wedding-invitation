@@ -18,6 +18,7 @@ function App() {
     slidesToShow: 1,
     slidesToScroll: 1,
     className: "slide",
+    arrows: false,
   };
 
   const KakaoMapScript = () => {
@@ -55,16 +56,16 @@ function App() {
                 </video>
               </div> */}
               <div>
-                <img src="/assets/images/01.jpg" alt="메인이미지" />
+                <img src="/assets/images/01.webp" alt="메인이미지" />
               </div>
               <div>
-                <img src="/assets/images/02.jpg" alt="메인이미지" />
+                <img src="/assets/images/02.webp" alt="메인이미지" />
               </div>
               <div>
-                <img src="/assets/images/03.jpg" alt="메인이미지" />
+                <img src="/assets/images/03.webp" alt="메인이미지" />
               </div>
               <div>
-                <img src="/assets/images/04.jpg" alt="메인이미지" />
+                <img src="/assets/images/04.webp" alt="메인이미지" />
               </div>
             </Slider>
           </div>
@@ -160,14 +161,11 @@ const Home = styled.div``;
 //   background: gray;
 // `;
 const Container = styled.div`
-  width: 100vw;
-
-  height: 100vh;
-
-  overflow-y: scroll;
-
-  -webkit-overflow-scrolling: touch;
-  background-image: url("/assets/images/01.jpg");
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-image: url("/assets/images/01.webp");
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -207,6 +205,7 @@ const Container = styled.div`
   }
 
   .main-visual {
+    transition: 0.3s;
     position: relative;
     .main-copy {
       color: white;
@@ -222,6 +221,7 @@ const Container = styled.div`
       line-height: 0.9em;
     }
     .slide {
+      transition: 0.3s;
       width: 100vw;
       height: 100vhpx;
       video {
@@ -230,6 +230,7 @@ const Container = styled.div`
         object-fit: cover;
       }
       img {
+        transition: 0.3s;
         width: 100vw;
         height: 100vh;
         object-fit: cover;
