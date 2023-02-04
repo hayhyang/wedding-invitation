@@ -1,9 +1,15 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import Slider from "react-slick";
 
 import { GlobalStyle } from "./style/GlobalStyle";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Account from "./Account";
+import Target from "./Target";
+
+const { kakao }: any = window;
 
 function App() {
   var settings = {
@@ -14,6 +20,21 @@ function App() {
     slidesToScroll: 1,
     className: "slide",
   };
+
+  const KakaoMapScript = () => {
+    const mapContainer = document.getElementById("map");
+    const mapOption = {
+      center: new kakao.maps.LatLng(37.5017456999996, 127.0274163539368),
+      level: 3,
+    };
+
+    const map = new kakao.maps.Map(mapContainer, mapOption);
+  };
+
+  useEffect(() => {
+    KakaoMapScript();
+  }, []);
+
   return (
     <div className="App">
       <GlobalStyle />
@@ -36,7 +57,7 @@ function App() {
               <div>
                 <img src="/assets/images/01.jpg" alt="메인이미지" />
               </div>
-              <div className="slide">
+              <div>
                 <img src="/assets/images/02.jpg" alt="메인이미지" />
               </div>
               <div>
@@ -72,28 +93,29 @@ function App() {
               <br />
               감사한 마음으로 간직하겠습니다.
             </p>
-            <div className="people">
-              <strong>황동주 · 김순자</strong>의 자&nbsp;&nbsp;&nbsp;
+            <div className="section people">
+              <strong>황동주 · 김순자</strong>&nbsp;&nbsp;의
+              자&nbsp;&nbsp;&nbsp;&nbsp;
               <strong>의명</strong>
               <br />
-              <strong>서한신 · 김희숙</strong>의 녀&nbsp;&nbsp;&nbsp;
+              <strong>서한신 · 김희숙</strong>&nbsp;&nbsp;의
+              녀&nbsp;&nbsp;&nbsp;&nbsp;
               <strong>미향</strong>
             </div>
-            <div className="location">
-              <h3>
-                Date
-                <br />
-                2023. 03. 04. SAT PM 1:00
-              </h3>
+            <div className="section location">
+              <h3>일시</h3>
+              2023. 03. 04. SAT PM 1:00
               <br />
-              <h3>Location</h3>
+              <br />
+              <h3>오시는 길</h3>
               서울 강남구 테헤란로13길 33, 아모르하우스
+              <div id="map"></div>
               <h4>주차안내</h4>
               기원 민영주차장
               <a href="https://naver.me/5CzpzPLV">네이버 지도보기</a>
               <br />
               요금은 저희가 부담합니다.
-              <h4>지하철/도보로</h4>
+              <h4>지하철/도보</h4>
               2호선 역삼역 4번 출구 도보 5-7분
               <br />
               2호선 강남역 12번 출구 도보 9-11분
@@ -102,12 +124,44 @@ function App() {
               <br />
               9호선 언주역 8번 출구 도보 10-12분
             </div>
-            {/* <div className="">
+            <div className="section send">
               <h3>마음 전하실 곳</h3>
-              <h4>신랑, 신부</h4>
-              <h4>혼주</h4>
-            </div> */}
+              <h4 style={{ marginTop: "1em" }}>신랑, 신부</h4>
+              <ul>
+                <Target
+                  role="신랑"
+                  name="황의명"
+                  phone="01099283583"
+                  account="신한은행 110-529-174377 황의명"
+                />
+                <Target
+                  role="신부"
+                  name="서미향"
+                  phone="01020570980"
+                  account="카카오뱅크 3333070200593 서미향"
+                />
+              </ul>
+              <h4>신랑측 혼주</h4>
+              <ul>
+                <Target
+                  role="어머니"
+                  name="김순조"
+                  phone="01027518158"
+                  account="부산은행 039-02-037312-5 김순조"
+                />
+              </ul>
+              <h4>신부측 혼주</h4>
+              <ul>
+                <Target
+                  role="아버지"
+                  name="서한신"
+                  phone="01082800740"
+                  account="농협 61308256038102 서한신"
+                />
+              </ul>
+            </div>
           </Contents>
+          <Footer>Copyright 2023. 서미향 all rights reserved.</Footer>
         </Container>
       </Home>
     </div>
@@ -127,6 +181,38 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.8em;
+  strong {
+    font-weight: 700;
+  }
+
+  .section {
+    &not(:last-child) {
+      margin-bottom: 60px;
+    }
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &::before {
+      content: "🤍";
+      display: block;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  h4 {
+    font-size: 14px;
+    color: #faacaa;
+    font-weight: 700;
+    margin: 2em 0 0.5em;
+  }
 
   .main-visual {
     position: relative;
@@ -141,6 +227,7 @@ const Container = styled.div`
       font-size: 40px;
       z-index: 100;
       text-align: center;
+      line-height: 0.9em;
     }
     .slide {
       width: 100vw;
@@ -195,31 +282,67 @@ const Container = styled.div`
 const Contents = styled.div`
   padding: 80px 0;
   p {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 2em;
+    font-family: "Nanum Myeongjo";
   }
   .people {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 2.2em;
     margin: 40px 0;
     strong {
-      font-size: 20px;
-      font-weight: 500;
+      font-family: "Nanum Myeongjo";
+      font-size: 18px;
+      font-weight: 700;
     }
   }
   .location {
-    font-size: 12px;
-    line-height: 1.5em;
-    h3 {
-      font-size: 16px;
-      font-weight: 700;
+  }
+  #map {
+    width: 100vw;
+    height: 70vw;
+    margin: 8px 0;
+  }
+  .send {
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 2em;
+      .button {
+        font-size: 20px;
+        margin-left: 16px;
+        a {
+          text-decoration: none;
+        }
+      }
+      .account {
+        font-size: 10px;
+        padding: 0em 0.8em;
+        height: 2em;
+        line-height: 2em;
+        background: #999;
+        color: white;
+        border-radius: 20px;
+      }
     }
+    margin-top: 40px;
     h4 {
-      color: #faacaa;
-      font-weight: 700;
-      margin: 2em 0 0.5em;
+      &:first-child {
+        margin-top: 0;
+      }
     }
   }
+`;
+
+const Footer = styled.div`
+  background: rgba(0, 0, 0, 0.4);
+  height: 30px;
+  line-height: 30px;
+  width: 100vw;
+  color: #fff;
+  font-size: 7px;
+  font-family: "Noto Sans KR";
 `;
 
 export default App;
