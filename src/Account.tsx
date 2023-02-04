@@ -7,7 +7,6 @@ interface AccountProps {
 }
 
 const Account = ({ account, state, setState }: AccountProps) => {
-  console.log(state);
   return (
     <AccountContainer isOpen={state} onClick={() => setState(false)}>
       <AccountContents>
