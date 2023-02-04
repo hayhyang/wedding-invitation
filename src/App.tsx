@@ -66,21 +66,6 @@ function App() {
               <div>
                 <img src="/assets/images/04.jpg" alt="메인이미지" />
               </div>
-              <div>
-                <img src="/assets/images/05.jpg" alt="메인이미지" />
-              </div>
-              <div>
-                <img src="/assets/images/06.jpg" alt="메인이미지" />
-              </div>
-              <div>
-                <img src="/assets/images/07.jpg" alt="메인이미지" />
-              </div>
-              <div>
-                <img src="/assets/images/08.jpg" alt="메인이미지" />
-              </div>
-              <div>
-                <img src="/assets/images/09.jpeg" alt="메인이미지" />
-              </div>
             </Slider>
           </div>
           <Contents>
