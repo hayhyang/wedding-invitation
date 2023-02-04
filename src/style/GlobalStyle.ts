@@ -34,9 +34,13 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
+	overscroll-behavior-y: none;
+	overflow: overlay;
 }
+
 ol, ul {
 	list-style: none;
 }
@@ -57,5 +61,7 @@ table {
 		font-size: 10px;
 		width: 100vw;
 		overflow-x: hidden
+		position: fixed;
+		overflow: hidden;
     }
 `;

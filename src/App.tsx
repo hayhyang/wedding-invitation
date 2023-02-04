@@ -174,6 +174,13 @@ const Home = styled.div``;
 //   background: gray;
 // `;
 const Container = styled.div`
+  width: 100vw;
+
+  height: 100vh;
+
+  overflow-y: scroll;
+
+  -webkit-overflow-scrolling: touch;
   background-image: url("/assets/images/01.jpg");
   min-height: 100vh;
   display: flex;
