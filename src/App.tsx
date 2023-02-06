@@ -104,7 +104,9 @@ function App() {
             </div>
             <div className="section location">
               <h3>일시</h3>
-              2023. 03. 04. SAT PM 1:00
+              <span style={{ fontSize: "18px" }}>
+                2023. 03. 04. SAT PM 1:00
+              </span>
               <br />
               <br />
               <h3>오시는 길</h3>
@@ -219,7 +221,7 @@ const Container = styled.div`
     margin: 2em 0 0.5em;
   }
   .main-copy {
-    background: white;
+    // background: white;
     width: 100%;
     padding: 40px 0;
     font-family: "Bebas Neue";
@@ -304,6 +306,7 @@ const Contents = styled.div`
   }
   .location {
   }
+
   #map {
     width: 100vw;
     height: 70vw;
