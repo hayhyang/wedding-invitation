@@ -24,12 +24,26 @@ function App() {
   const KakaoMapScript = () => {
     const mapContainer = document.getElementById("map");
     const mapOption = {
-      center: new kakao.maps.LatLng(37.5017456999996, 127.0274163539368),
-      draggable: false,
+      center: new kakao.maps.LatLng(37.5017245989969, 127.03157534808955),
+
       level: 3,
     };
 
     const map = new kakao.maps.Map(mapContainer, mapOption);
+
+    var markerPosition = new kakao.maps.LatLng(
+      37.5017245989969,
+      127.03157534808955
+    );
+    var marker = new kakao.maps.Marker({
+      position: markerPosition,
+      clickable: true,
+    });
+    marker.setMap(map);
+    kakao.maps.event.addListener(marker, "click", function () {
+      // 마커 위에 인포윈도우를 표시합니다
+      window.open("http://kko.to/ML3cBlXRYg");
+    });
   };
 
   useEffect(() => {
@@ -97,8 +111,10 @@ function App() {
               서울 강남구 테헤란로13길 33, 아모르하우스
               <div id="map"></div>
               <h4>주차안내</h4>
-              기원 민영주차장
-              <a href="https://naver.me/5CzpzPLV">네이버 지도보기</a>
+              기원 민영주차장&nbsp;&nbsp;
+              <a className="link" href="http://kko.to/5IGd41alV_">
+                👉🏻 카카오 지도보기 👈🏻
+              </a>
               <br />
               요금은 저희가 부담합니다.
               <h4>지하철/도보</h4>
@@ -161,6 +177,9 @@ const Home = styled.div``;
 //   background: gray;
 // `;
 const Container = styled.div`
+  .link {
+    text-decoration: none;
+  }
   background-image: url("/assets/images/01.webp");
   min-height: 100vh;
   display: flex;
@@ -328,7 +347,7 @@ const Footer = styled.div`
   line-height: 30px;
   width: 100vw;
   color: #fff;
-  font-size: 7px;
+  font-size: 9px;
   font-family: "Noto Sans KR";
 `;
 
