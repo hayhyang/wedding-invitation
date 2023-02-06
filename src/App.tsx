@@ -94,7 +94,7 @@ function App() {
               감사한 마음으로 간직하겠습니다.
             </p>
             <div className="section people">
-              <strong>황동주 · 김순자</strong>&nbsp;&nbsp;의
+              <strong>황동주 · 김순조</strong>&nbsp;&nbsp;의
               차남&nbsp;&nbsp;&nbsp;&nbsp;
               <strong>의명</strong>
               <br />
