@@ -57,6 +57,6 @@ table {
 		font-size: 10px;
 		width: 100vw;
 		overflow-x: hidden
-		width:100%; height:100%;
+		
     }
 `;

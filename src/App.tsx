@@ -41,14 +41,14 @@ function App() {
       <GlobalStyle />
       <Home>
         <Container>
+          <h1 className="main-copy">
+            03.04
+            <br />
+            hwang eui myeong
+            <br />
+            seo mi hyang
+          </h1>
           <div className="main-visual">
-            <h1 className="main-copy">
-              03.04
-              <br />
-              hwang eui myeong
-              <br />
-              seo mi hyang
-            </h1>
             <Slider {...settings}>
               {/* <div>
                 <video autoPlay loop muted>
@@ -161,10 +161,6 @@ const Home = styled.div``;
 //   background: gray;
 // `;
 const Container = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
   background-image: url("/assets/images/01.webp");
   min-height: 100vh;
   display: flex;
@@ -203,36 +199,34 @@ const Container = styled.div`
     font-weight: 700;
     margin: 2em 0 0.5em;
   }
-
+  .main-copy {
+    background: white;
+    width: 100%;
+    padding: 40px 0;
+    font-family: "Bebas Neue";
+    font-size: 40px;
+    z-index: 100;
+    text-align: center;
+    line-height: 0.9em;
+  }
   .main-visual {
     transition: 0.3s;
     position: relative;
-    .main-copy {
-      color: white;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      mix-blend-mode: difference;
-      right: 0;
-      font-family: "Bebas Neue";
-      font-size: 40px;
-      z-index: 100;
-      text-align: center;
-      line-height: 0.9em;
-    }
+
     .slide {
       transition: 0.3s;
       width: 100vw;
-      height: 100vhpx;
+      height: 100vw;
+      overflow: hidden;
       video {
         width: 100vw;
-        height: 100vh;
+        height: 100vw;
         object-fit: cover;
       }
       img {
         transition: 0.3s;
         width: 100vw;
-        height: 100vh;
+        height: 100vw;
         object-fit: cover;
       }
     }
