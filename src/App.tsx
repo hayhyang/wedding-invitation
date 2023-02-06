@@ -95,11 +95,11 @@ function App() {
             </p>
             <div className="section people">
               <strong>황동주 · 김순자</strong>&nbsp;&nbsp;의
-              자&nbsp;&nbsp;&nbsp;&nbsp;
+              차남&nbsp;&nbsp;&nbsp;&nbsp;
               <strong>의명</strong>
               <br />
               <strong>서한신 · 김희숙</strong>&nbsp;&nbsp;의
-              녀&nbsp;&nbsp;&nbsp;&nbsp;
+              장녀&nbsp;&nbsp;&nbsp;&nbsp;
               <strong>미향</strong>
             </div>
             <div className="section location">
